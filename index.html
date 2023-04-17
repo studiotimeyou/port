@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        header {
+            width: 100%;
+            box-shadow: 0px 3px 5px #333;
+            position: fixed;
+            z-index: 99;
+        }
+
+        header .navi {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        header li {
+            width: 25%;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            background: #ccc;
+        }
+
+        header a {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        header a:hover {
+            background: orange;
+            color: #fff;
+        }
+
+        /*container*/
+        #container {
+            width: 100%;
+            height: 400%;
+            position: fixed;
+
+        }
+
+        #container>div {
+            height: 25%;
+            position: relative;
+        }
+
+        .page1 {
+            background: #777;
+        }
+
+        .page2 {
+            background: #f00;
+        }
+
+        .page3 {
+            background: #ff0;
+        }
+
+        .page4 {
+            background: #0f0;
+        }
+
+        #container>div h1 {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .f_menu {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 100px;
+        }
+
+        .f_menu li {
+            width: 20%;
+            height: 300px;
+            border: 1px solid #f00;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <ul class="navi">
+            <li><a href="#page1">PAGE1</a></li>
+            <li><a href="#page2">PAGE2</a></li>
+            <li><a href="#page3">PAGE3</a></li>
+            <li><a href="#page4">PAGE4</a></li>
+        </ul>
+    </header>
+    <div id="container">
+        <div class="page1" id="page1">
+            <!--<h1>page1</h1>-->
+            <img src="">
+            <ul class="f_menu">
+                <li><a href="#">HDA</a></li>
+                <li><a href="#">채용안내</a></li>
+                <li><a href="#">업무제휴</a></li>
+                <li><a href="#">환불규정</a></li>
+                <li><a href="#">찾아오는길</a></li>
+            </ul>
+        </div>
+        <div class="page2" id="page2">
+            <h1>page2</h1>
+        </div>
+        <div class="page3" id="page3">
+            <h1>page3</h1>
+        </div>
+        <div class="page4" id="page4">
+            <h1>page4</h1>
+        </div>
+    </div>
+    <script>
+        let i;
+        $(".navi li").on("click", function () {
+            i = $(this).index();
+            $("#container").stop().animate({ top: -i * 100 + "%" });
+        });
+    </script>
+</body>
+
+</html>
